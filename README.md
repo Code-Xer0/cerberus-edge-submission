@@ -37,7 +37,7 @@ Do not point this development checkout at a production gateway without reviewing
 
 ## Honest demo boundaries
 
-The submitted recording uses actual authenticated host observations, retained inventory and a verified historical Meta `muse-spark-1.3` response. It does not claim local Glimmer inference. The A7500 demonstration is a dated AP validation, not proof of receive-only passive IDS. The scoped recording view masks selected presentation surfaces; the full engineering interface, developer tools and browser chrome are outside its privacy guarantee. Operational writes and raw exports are omitted from the recording flow.
+The action-based recording path uses actual authenticated host observations, retained inventory and a verified Meta `muse-spark-1.3` response generated through the review dialog. The result remains inspectable as a saved receipt. It does not claim local Glimmer inference. The A7500 demonstration is a dated AP validation, not proof of receive-only passive IDS. The scoped recording view masks selected presentation surfaces; the full engineering interface, developer tools and browser chrome are outside its privacy guarantee. Operational writes and raw exports are omitted from the recording flow.
 
 ## Release scope
 
@@ -52,3 +52,5 @@ The private endpoint route-inventory integration test is excluded because that e
 ## Full-interface recording
 
 The optional `/recording` entry now leads through the existing login into the complete operator UI (`?operator=1#home`), not the older read-only presentation scenes. This full interface displays private operational identifiers: blur them in an edited recording. Its header Sign Out uses an explicit browser-session review and preserves appliance monitoring. The old scoped view is not a substitute for demonstrating the working controls. A refreshed signed cookie retains its CSRF review binding to the validated login; a new login has a separate binding.
+
+The latest full-interface verification completed a reviewed Meta explanation and a durable operator acknowledgment. Two separately reviewed local Glimmer requests timed out at the current provider bound; local inference is not an accepted demo claim. The production AP was preserved, and no receive-only monitoring claim is made. Video recording, upload and owner eligibility/terms review remain separate from source publication.
