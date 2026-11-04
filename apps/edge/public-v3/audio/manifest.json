@@ -1,0 +1,16 @@
+{
+  "source": "https://kenney.nl/assets/interface-sounds",
+  "license": "CC0-1.0",
+  "cues": [
+    "press",
+    "open",
+    "close",
+    "step",
+    "accepted",
+    "verified",
+    "rejected",
+    "disconnect",
+    "reconnect",
+    "login"
+  ]
+}

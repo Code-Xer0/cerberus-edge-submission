@@ -1,0 +1,4 @@
+import {IconActivity,IconShield} from '@tabler/icons-react';
+import {record,records,label,statusTone} from '../lib/records';
+import {Empty,Pill} from '../components/ui';
+export function HomeSignals({value}:{value:unknown}){const data=record(value);const kpis=records(data.kpis);const actions=records(data.actions);return <><div className="metrics" style={{padding:'0 18px'}}>{kpis.map((r,i)=><div className="metric" key={i}><span><IconActivity size={15}/>{label(r.k)}</span><strong>{label(r.v)}</strong><small>{label(r.f,'')}</small></div>)}</div>{typeof data.heroSub==='string'&&<p className="explain">{data.heroSub}</p>}{actions.map((r,i)=><div className="plane-row" key={i}><IconShield size={19}/><div><b>{label(r.name)}</b><small>{label(r.t,'Timestamp unavailable')}</small></div><Pill kind={statusTone(r.st)}>{label(r.st,'UNVERIFIED')}</Pill></div>)}{!kpis.length&&!actions.length&&<Empty error="No structured summary observations were supplied by the edge adapter."/>}</>}

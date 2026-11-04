@@ -1,0 +1,8 @@
+[Unit]
+Description=Restore the Cerberus Edge greeter when Ragnar starts
+After=docker.service ragnar.service
+Wants=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /opt/cerberus-edge/cerberus-greeter-refresh.py

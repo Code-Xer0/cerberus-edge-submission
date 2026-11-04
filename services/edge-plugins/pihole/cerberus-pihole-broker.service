@@ -1,0 +1,25 @@
+[Unit]
+Description=Cerberus Pi-hole control broker
+After=pihole-FTL.service network-online.target
+Wants=network-online.target
+[Service]
+Type=simple
+User=root
+Environment=PYTHONDONTWRITEBYTECODE=1
+EnvironmentFile=/etc/cerberus-dns/broker.env
+LoadCredential=broker-token:/etc/cerberus-dns/broker-token
+ExecStart=/usr/bin/python3 /opt/cerberus-pihole/current/broker.py
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ReadWritePaths=/etc/pihole -/run/pihole -/var/log/pihole
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+[Install]
+WantedBy=multi-user.target

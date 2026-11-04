@@ -1,0 +1,10 @@
+[Unit]
+Description=Publish bounded real evidence into Cerberus insights
+After=cerberus-agent-pi5.service cerberus-reporting.service
+[Service]
+Type=oneshot
+LoadCredential=edge-internal:/etc/cerberus-edge/credentials/edge-internal
+ExecStart=/usr/bin/python3 /opt/cerberus-edge-api/current/context_publish.py
+TimeoutStartSec=35
+UMask=0077
+NoNewPrivileges=yes

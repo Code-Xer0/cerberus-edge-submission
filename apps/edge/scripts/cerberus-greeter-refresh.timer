@@ -1,0 +1,11 @@
+[Unit]
+Description=Keep the Cerberus Edge greeter available
+
+[Timer]
+OnBootSec=50s
+OnUnitActiveSec=60s
+AccuracySec=5s
+Unit=cerberus-greeter-refresh.service
+
+[Install]
+WantedBy=timers.target

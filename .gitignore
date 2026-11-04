@@ -1,0 +1,11 @@
+node_modules
+dist/
+release/
+.venv/
+__pycache__/
+*.pyc
+.env*
+*.sqlite*
+*.db
+*.pcap*
+.cache/

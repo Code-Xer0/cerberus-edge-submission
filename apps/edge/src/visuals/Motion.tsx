@@ -1,0 +1,5 @@
+import {createContext,useContext,useEffect,useMemo,useState} from 'react';
+const Context=createContext({off:false,hidden:false});
+export function MotionProvider({off,hidden,children}:{off:boolean;hidden:boolean;children:React.ReactNode}){const [reduced,setReduced]=useState(()=>matchMedia('(prefers-reduced-motion: reduce)').matches);useEffect(()=>{const media=matchMedia('(prefers-reduced-motion: reduce)');const update=()=>setReduced(media.matches);media.addEventListener('change',update);return()=>media.removeEventListener('change',update)},[]);const value=useMemo(()=>({off:off||reduced,hidden}),[off,hidden,reduced]);return <Context.Provider value={value}>{children}</Context.Provider>}
+export function useMotion(){const value=useContext(Context);return {...value,active:!value.off&&!value.hidden}}
+export const formatNumber=(value:number|undefined,unit='')=>value===undefined?'—':new Intl.NumberFormat(undefined,{notation:value>=10000?'compact':'standard',maximumFractionDigits:value<10?2:1}).format(value)+unit;

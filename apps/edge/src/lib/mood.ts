@@ -1,0 +1,3 @@
+import {record} from './records';
+const levels=[{name:'CRITICAL',color:'#ff2d3d'},{name:'HIGH',color:'#ff7a3d'},{name:'ELEVATED',color:'#e8b54a'},{name:'GUARDED',color:'#4fd8ec'},{name:'CALM',color:'#39d353'}];
+export function verifiedMood(value:unknown,receivedAt?:number,now=Date.now()){const d=record(value);const n=d.moodN;const stamped=typeof d.generated_at==='string'?Date.parse(d.generated_at):undefined;const stale=d.stale===true||record(d.freshness).stale===true||(stamped!==undefined&&(!Number.isFinite(stamped)||now-stamped>90000||now<stamped));if(stale||!receivedAt||now-receivedAt>90000||now<receivedAt||typeof n!=='number'||!Number.isInteger(n)||n<1||n>5)return {name:'UNVERIFIED',color:'#8295a5',level:0};return {...levels[n-1],level:n}}

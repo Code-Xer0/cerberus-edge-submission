@@ -1,0 +1,27 @@
+[Unit]
+Description=Cerberus authenticated Edge integration gateway
+After=network.target cerberus-agent-pi5.service
+[Service]
+Type=simple
+DynamicUser=yes
+StateDirectory=cerberus-edge-api
+WorkingDirectory=/opt/cerberus-edge-api/current
+EnvironmentFile=-/etc/cerberus-edge/gateway.env
+Environment=CERBERUS_GATEWAY_STATE=/var/lib/cerberus-edge-api
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=PYTHONPATH=/opt/cerberus-agent/edge-current
+LoadCredential=meta-key:/etc/cerberus-edge/credentials/meta-key
+ExecStart=/opt/cerberus-edge-api/venv/bin/python gateway.py
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ProtectControlGroups=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+RestrictSUIDSGID=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+[Install]
+WantedBy=multi-user.target

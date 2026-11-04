@@ -1,0 +1,8 @@
+[Unit]
+Description=Refresh read-only Cerberus Edge status in Ragnar
+After=docker.service ragnar.service
+Wants=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /opt/cerberus-edge/cerberus-edge-refresh.py

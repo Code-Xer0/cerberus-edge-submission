@@ -1,0 +1,14 @@
+.insight-card{border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin:0 18px 12px;background:var(--card)}
+.insight-head{display:flex;gap:10px;align-items:flex-start}
+.insight-head div{flex:1}
+.insight-head h3{margin:0;font-size:15px}
+.insight-head small{color:var(--muted-foreground);font-size:11px}
+.insight-what{margin:10px 0 6px;line-height:1.55}
+.insight-impact{margin:4px 0;font-size:13px}
+.insight-sec{margin:10px 0}
+.insight-sec b{font-size:11px;letter-spacing:.08em;color:var(--muted-foreground)}
+.insight-sec ul{margin:6px 0;padding-left:18px}
+.insight-sec li{margin:3px 0;line-height:1.5}
+.insight-sec em{color:var(--muted-foreground)}
+.insight-ask{display:flex;gap:8px;margin-bottom:8px}
+.insight-ask input{flex:1;background:transparent;border:1px solid var(--border);border-radius:6px;padding:8px 10px;color:inherit;font:inherit}

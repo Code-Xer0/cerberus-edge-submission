@@ -1,0 +1,3 @@
+import {useCallback,useEffect,useState} from 'react';
+import {parseRoute,routeHash} from './navigation';
+export function useRoute(known:readonly string[]){const [route,setRoute]=useState(()=>parseRoute(location.hash,known));useEffect(()=>{const sync=()=>setRoute(parseRoute(location.hash,known));window.addEventListener('hashchange',sync);return()=>window.removeEventListener('hashchange',sync)},[known]);useEffect(()=>{document.querySelector('main')?.scrollTo({top:0,behavior:'instant'})},[route.page]);const navigate=useCallback((page:string,selected?:string)=>{const hash=routeHash(page,selected);if(location.hash!==hash)location.hash=hash;setRoute(parseRoute(hash,known));window.scrollTo({top:0,behavior:'instant'})},[known]);return{route,navigate}}
